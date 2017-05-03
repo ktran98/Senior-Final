@@ -8,7 +8,7 @@ this.message = m;
 function inRange(char,min,max){
     let unicode = char.charCodeAt(0);
     if(unicode >= min && unicode <= max){
-        return true;
+      return true;
     }
     else{
       return false
@@ -33,7 +33,6 @@ exports.checkLength = function(str){
         return valid;
     }
 }
-
 
 exports.containsUpper = function(str){
     var hasUpper = 0
@@ -84,16 +83,16 @@ exports.containsSpecial = function(str){
     var hasSpecial = 0
     var special = [33,64,35,36,37,38,94,42]
     for(var i = 0; i < str.length; i++){
-        for(var j = 0; j < special.length; j++){
-            if(str[i] == special[i]){
+      for(var j = 0; j < special.length; j++){
+          if(str[i] == special[i]){
               hasSpecial++;
           }
       }
   }
-  if(!hasSpecial == 0){
+    if(!hasSpecial == 0){
       throw new PasswordMessage("Your password contains special characters")
   }
-  else{
+    else{
       return true;
   }
 }
