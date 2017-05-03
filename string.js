@@ -66,13 +66,13 @@ exports.containsLower = function(str){
 }
 
 exports.containsNumerical = function(str){
-    var count = 0
+    var hasNumerical = 0
     for(var i = 0; i < str.length; i++){
     if(str.charCodeAt(i) >= 48 && str[i].charCodeAt >= 57){
-        count++;
+        hasNumerical++;
     }
  }
-    if(count == str.length){
+    if(hasNumerical == str.length){
       return true;
     }
     else{
@@ -81,5 +81,19 @@ exports.containsNumerical = function(str){
 }
 
 exports.containsSpecial = function(str){
-
+    var hasSpecial = 0
+    var special = [33,64,35,36,37,38,94,42]
+    for(var i = 0; i < str.length; i++){
+        for(var j = 0; j < special.length; j++){
+            if(str[i] == special[i]){
+              hasSpecial++;
+          }
+      }
+  }
+  if(!hasSpecial == 0){
+      throw new PasswordMessage("Your password contains special characters")
+  }
+  else{
+      return true;
+  }
 }
